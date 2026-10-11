@@ -1,0 +1,118 @@
+{
+  "categories": {
+    "ANIMAL": {
+      "minecraft:armadillo": 80,
+      "minecraft:axolotl": 150,
+      "minecraft:bat": 10,
+      "minecraft:bee": 50,
+      "minecraft:camel": 300,
+      "minecraft:camel_husk": 300,
+      "minecraft:cat": 100,
+      "minecraft:chicken": 15.0,
+      "minecraft:cod": 10,
+      "minecraft:cow": 40,
+      "minecraft:donkey": 200,
+      "minecraft:fox": 120,
+      "minecraft:frog": 50,
+      "minecraft:glow_squid": 40,
+      "minecraft:goat": 80,
+      "minecraft:happy_ghast": 600,
+      "minecraft:horse": 250,
+      "minecraft:llama": 180,
+      "minecraft:mooshroom": 300,
+      "minecraft:mule": 220,
+      "minecraft:nautilus": 200,
+      "minecraft:ocelot": 100,
+      "minecraft:parrot": 150,
+      "minecraft:pig": 35.0,
+      "minecraft:pufferfish": 20,
+      "minecraft:rabbit": 20,
+      "minecraft:salmon": 15.0,
+      "minecraft:sheep": 35.0,
+      "minecraft:sniffer": 800,
+      "minecraft:squid": 20,
+      "minecraft:strider": 80,
+      "minecraft:tadpole": 10,
+      "minecraft:trader_llama": 180,
+      "minecraft:tropical_fish": 20,
+      "minecraft:turtle": 150,
+      "minecraft:wolf": 100
+    },
+    "NEUTRAL": {
+      "minecraft:allay": 500,
+      "minecraft:cave_spider": 30,
+      "minecraft:dolphin": 200,
+      "minecraft:enderman": 100,
+      "minecraft:panda": 400,
+      "minecraft:piglin": 60,
+      "minecraft:polar_bear": 250,
+      "minecraft:spider": 30,
+      "minecraft:zombified_piglin": 30
+    },
+    "HOSTILE": {
+      "minecraft:blaze": 100,
+      "minecraft:bogged": 30,
+      "minecraft:breeze": 200,
+      "minecraft:creeper": 40,
+      "minecraft:drowned": 30,
+      "minecraft:endermite": 10,
+      "minecraft:evoker": 400,
+      "minecraft:ghast": 200,
+      "minecraft:guardian": 150,
+      "minecraft:hoglin": 80,
+      "minecraft:husk": 20,
+      "minecraft:magma_cube": 30,
+      "minecraft:parched": 30,
+      "minecraft:phantom": 60,
+      "minecraft:piglin_brute": 150,
+      "minecraft:pillager": 60,
+      "minecraft:ravager": 500,
+      "minecraft:shulker": 400,
+      "minecraft:silverfish": 10,
+      "minecraft:skeleton": 25.0,
+      "minecraft:slime": 30,
+      "minecraft:stray": 25.0,
+      "minecraft:sulfur_cube": 40,
+      "minecraft:vex": 50,
+      "minecraft:vindicator": 100,
+      "minecraft:witch": 80,
+      "minecraft:wither_skeleton": 250,
+      "minecraft:zoglin": 80,
+      "minecraft:zombie": 20,
+      "minecraft:zombie_nautilus": 150,
+      "minecraft:zombie_villager": 100
+    },
+    "RARE": {
+      "minecraft:elder_guardian": 2000,
+      "minecraft:illusioner": 600,
+      "minecraft:skeleton_horse": 400,
+      "minecraft:wandering_trader": 300,
+      "minecraft:zombie_horse": 400
+    }
+  },
+  "formulas": {
+    "minecraft:iron_golem": {
+      "minecraft:iron_block": 4,
+      "minecraft:carved_pumpkin": 1
+    },
+    "minecraft:snow_golem": {
+      "minecraft:snow_block": 2,
+      "minecraft:carved_pumpkin": 1
+    },
+    "minecraft:copper_golem": {
+      "minecraft:copper_block": 1,
+      "minecraft:carved_pumpkin": 1
+    }
+  },
+  "formulaCategory": "NEUTRAL",
+  "overrides": {},
+  "banned": [
+    "minecraft:player",
+    "minecraft:ender_dragon",
+    "minecraft:wither",
+    "minecraft:warden",
+    "minecraft:giant",
+    "minecraft:creaking",
+    "minecraft:mannequin"
+  ]
+}

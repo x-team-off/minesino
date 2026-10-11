@@ -1,0 +1,8 @@
+{
+	"required": true,
+	"package": "dev.minesino.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": ["MinecraftMixin", "FirstPersonHandsAndItemsMixin", "HudMixin"],
+	"injectors": { "defaultRequire": 1 },
+	"overwrites": { "requireAnnotations": true }
+}

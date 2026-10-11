@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "minesino",
+	"version": "${version}",
+	"name": "MineSino",
+	"description": "Premium casino, economy, item & mob selling and a shop on a tenth hotbar slot tablet. Server-authoritative.",
+	"authors": ["matv1_x", "Claude Code"],
+	"icon": "assets/minesino/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["dev.minesino.MineSino"],
+		"client": ["dev.minesino.client.MineSinoClient"]
+	},
+	"mixins": [
+		"minesino.mixins.json",
+		{ "config": "minesino.client.mixins.json", "environment": "client" }
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
