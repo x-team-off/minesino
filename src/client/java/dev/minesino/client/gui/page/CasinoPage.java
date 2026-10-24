@@ -51,7 +51,7 @@ public class CasinoPage extends Page {
 		g.pose().popMatrix();
 		if (contentH > h) {
 			float bar = h * h / contentH;
-			Ui.round(g, x + w + 3, y + (h - bar) * (scroll / (contentH - h)), 2, bar, 1, Theme.alpha(Theme.PURPLE, 0.6f));
+			Ui.round(g, x + w + 3, y + (h - bar) * (scroll / (contentH - h)), 2, bar, 1, Theme.alpha(Theme.ACCENT, 0.6f));
 		}
 		renderError(g);
 	}

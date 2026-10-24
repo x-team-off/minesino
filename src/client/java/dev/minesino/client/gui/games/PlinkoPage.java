@@ -99,7 +99,7 @@ public class PlinkoPage extends GamePage {
 	protected void renderBoard(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		for (int r = 0; r < rows; r++) {
 			for (int j = 0; j < r + 3; j++) {
-				Ui.circle(g, pegX(r, j), top + r * spacing, Math.max(1.1f, spacing * 0.12f), 0xFFDCD6EA);
+				Ui.circle(g, pegX(r, j), top + r * spacing, Math.max(1.1f, spacing * 0.12f), 0xFFEAD6D9);
 			}
 		}
 		long[] mults = table();
@@ -109,7 +109,7 @@ public class PlinkoPage extends GamePage {
 			float x0 = cx + (k - rows / 2f) * spacing - binW / 2;
 			float edge = Math.abs(k - rows / 2f) / (rows / 2f);
 			int color = Theme.lerp(0xFFF59E0B, 0xFFE11D48, edge);
-			if (k < mults.length && mults[k] < 100) color = Theme.lerp(0xFF6D28D9, 0xFFF59E0B, edge * 1.5f);
+			if (k < mults.length && mults[k] < 100) color = Theme.lerp(0xFF8E1A30, 0xFFF59E0B, edge * 1.5f);
 			boolean hit = k == bin && !animating;
 			if (hit) Ui.glow(g, x0, binY, binW, 12, 6, Theme.alpha(color, 0.7f * Anim.pulse(0.8f) + 0.3f));
 			Ui.round(g, x0, binY + (hit ? 2 : 0), binW, 12, 2.5f, color);

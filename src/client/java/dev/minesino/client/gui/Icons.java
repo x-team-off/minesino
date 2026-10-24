@@ -9,7 +9,7 @@ public final class Icons {
 	/** Accent colour per icon id. */
 	public static int accent(String id) {
 		return switch (id) {
-			case "casino", "roulette", "keno" -> Theme.PURPLE;
+			case "casino", "roulette", "keno" -> Theme.ACCENT;
 			case "slots", "coinflip", "shop", "wheel" -> Theme.GOLD;
 			case "blackjack", "hilo" -> 0xFF60A5FA;
 			case "plinko", "crash" -> Theme.PINK;
@@ -25,12 +25,12 @@ public final class Icons {
 		float u = s / 16f;
 		switch (id) {
 			case "casino" -> {
-				chip(g, cx - 3 * u, cy + 1 * u, 5 * u, Theme.PURPLE);
+				chip(g, cx - 3 * u, cy + 1 * u, 5 * u, Theme.ACCENT);
 				chip(g, cx + 3 * u, cy - 2 * u, 5 * u, Theme.GOLD);
 			}
 			case "roulette" -> {
 				Ui.circle(g, cx, cy, 7 * u, Theme.GOLD);
-				Ui.circle(g, cx, cy, 6 * u, 0xFF1F1B2B);
+				Ui.circle(g, cx, cy, 6 * u, 0xFF2B1B1D);
 				for (int i = 0; i < 8; i++) {
 					double ang = i * Math.PI / 4;
 					Ui.circle(g, cx + (float) Math.sin(ang) * 4.2f * u, cy - (float) Math.cos(ang) * 4.2f * u, 1.3f * u, i % 2 == 0 ? Theme.RED : 0xFF0B0B0B);
@@ -72,7 +72,7 @@ public final class Icons {
 			case "mines" -> {
 				for (int r = 0; r < 3; r++) for (int c = 0; c < 3; c++) {
 					boolean bomb = r == 1 && c == 1;
-					Ui.round(g, cx - 6.5f * u + c * 4.5f * u, cy - 6.5f * u + r * 4.5f * u, 3.8f * u, 3.8f * u, 0.8f * u, bomb ? Theme.RED : (r + c) % 2 == 0 ? Theme.GREEN : 0xFF3B3350);
+					Ui.round(g, cx - 6.5f * u + c * 4.5f * u, cy - 6.5f * u + r * 4.5f * u, 3.8f * u, 3.8f * u, 0.8f * u, bomb ? Theme.RED : (r + c) % 2 == 0 ? Theme.GREEN : 0xFF503337);
 				}
 			}
 			case "crash" -> {
@@ -84,18 +84,18 @@ public final class Icons {
 			}
 			case "wheel" -> {
 				Ui.circle(g, cx, cy, 7 * u, Theme.GOLD);
-				int[] cols = {Theme.PURPLE, Theme.PINK, Theme.NEON, Theme.GREEN};
+				int[] cols = {Theme.ACCENT, Theme.PINK, Theme.NEON, Theme.GREEN};
 				for (int i = 0; i < 4; i++) {
 					double ang = i * Math.PI / 2 + Math.PI / 4;
 					Ui.circle(g, cx + (float) Math.sin(ang) * 3.3f * u, cy - (float) Math.cos(ang) * 3.3f * u, 2.6f * u, cols[i]);
 				}
-				Ui.circle(g, cx, cy, 1.5f * u, 0xFF1F1B2B);
+				Ui.circle(g, cx, cy, 1.5f * u, 0xFF2B1B1D);
 				Ui.round(g, cx - 1 * u, cy - 9 * u, 2 * u, 3 * u, 0.8f * u, Theme.TEXT);
 			}
 			case "keno" -> {
 				for (int r = 0; r < 3; r++) for (int c = 0; c < 4; c++) {
 					boolean on = (r * 4 + c) % 5 == 1;
-					Ui.circle(g, cx - 5.25f * u + c * 3.5f * u, cy - 3.5f * u + r * 3.5f * u, 1.4f * u, on ? Theme.PURPLE : 0xFF3B3350);
+					Ui.circle(g, cx - 5.25f * u + c * 3.5f * u, cy - 3.5f * u + r * 3.5f * u, 1.4f * u, on ? Theme.ACCENT : 0xFF503337);
 				}
 			}
 			case "sell" -> {

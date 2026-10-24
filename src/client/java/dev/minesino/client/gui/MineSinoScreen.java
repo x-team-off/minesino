@@ -140,7 +140,7 @@ public class MineSinoScreen extends Screen {
 	@Override
 	public void extractBackground(GuiGraphicsExtractor g, int mx, int my, float a) {
 		float t = Anim.easeOutCubic(Anim.progress(openedAt, 250));
-		Ui.gradient(g, 0, 0, width, height, Theme.alpha(0xD0050409, t), Theme.alpha(0xE0120A1E, t));
+		Ui.gradient(g, 0, 0, width, height, Theme.alpha(0xD0090405, t), Theme.alpha(0xE01E0A0D, t));
 	}
 
 	@Override
@@ -167,11 +167,11 @@ public class MineSinoScreen extends Screen {
 
 	private void renderFrame(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		// outer glow + panel
-		Ui.glow(g, px, py, pw, ph, 18, Theme.alpha(Theme.PURPLE, 0.18f + 0.08f * Anim.pulse(4f)));
+		Ui.glow(g, px, py, pw, ph, 18, Theme.alpha(Theme.ACCENT, 0.18f + 0.08f * Anim.pulse(4f)));
 		Ui.glow(g, px, py + 4, pw, ph, 10, 0x88000000);
 		Ui.panel(g, px, py, pw, ph, 10, Theme.BG, Theme.BORDER_HI);
-		Ui.gradient(g, px + 1, py + 1, pw - 2, 28, 0xFF1A1526, Theme.BG);
-		Ui.hGradient(g, px + 10, py + 29, pw - 20, 0.8f, Theme.alpha(Theme.PURPLE, 0.8f), Theme.alpha(Theme.GOLD, 0.8f));
+		Ui.gradient(g, px + 1, py + 1, pw - 2, 28, 0xFF261517, Theme.BG);
+		Ui.hGradient(g, px + 10, py + 29, pw - 20, 0.8f, Theme.alpha(Theme.ACCENT, 0.8f), Theme.alpha(Theme.GOLD, 0.8f));
 		Ui.logo(g, px + 12, py + 9, 1.4f);
 		String title = page.title();
 		float logoW = Ui.width("MineSino") * 1.4f;

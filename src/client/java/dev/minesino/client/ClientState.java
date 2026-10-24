@@ -82,7 +82,17 @@ public final class ClientState {
 		while (toasts.size() > 4) toasts.removeFirst();
 	}
 
+	/** Entity ids of other players currently holding their tablet (server-reported). */
+	public static final java.util.Set<Integer> tabletHolders = java.util.concurrent.ConcurrentHashMap.newKeySet();
+
+	/** Whether {@code player} should be drawn holding the tablet. */
+	public static boolean holdsTablet(net.minecraft.world.entity.player.Player player) {
+		if (player instanceof net.minecraft.client.player.LocalPlayer) return tabletActive();
+		return tabletHolders.contains(player.getId());
+	}
+
 	public static void reset() {
+		tabletHolders.clear();
 		balanceLoaded = false;
 		tabletSelected = false;
 		predictedSelection = null;

@@ -141,6 +141,10 @@ public class MineSinoClient implements ClientModInitializer {
 			ClientState.predictedSelection = null;
 			ClientState.applySettings(p.settingsJson());
 		});
+		ClientPlayNetworking.registerGlobalReceiver(MineSinoNetwork.TabletHolder.TYPE, (p, ctx) -> {
+			if (p.holding()) ClientState.tabletHolders.add(p.entityId());
+			else ClientState.tabletHolders.remove(p.entityId());
+		});
 		ClientPlayNetworking.registerGlobalReceiver(MineSinoNetwork.OpenScreen.TYPE, (p, ctx) -> {
 			Minecraft mc = ctx.client();
 			TabletData data = new TabletData(p.json());

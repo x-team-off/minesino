@@ -107,10 +107,20 @@ public class MineSinoClientGameTest implements FabricClientGameTest {
 			ctx.getInput().pressKey(MineSinoClient.tabletKey);
 			ctx.waitFor(mc -> ClientState.tabletSelected, 100);
 
+			// third person: the tablet is held in the hand, as other players see it
+			ctx.runOnClient(mc -> mc.gui.toastManager().clear()); // vanilla advancement toasts would cover the screenshots
+			ctx.runOnClient(mc -> mc.options.setCameraType(net.minecraft.client.CameraType.THIRD_PERSON_FRONT));
+			ctx.waitTicks(10);
+			ctx.takeScreenshot("05_third_person_tablet");
+			ctx.runOnClient(mc -> mc.options.setCameraType(net.minecraft.client.CameraType.FIRST_PERSON));
+			ctx.waitTicks(2);
+
 			// ---------------------------------------------------------- tablet UI via right click
 			ctx.getInput().pressKey(o -> o.keyUse);
 			ctx.waitForScreen(MineSinoScreen.class);
 			ctx.waitTicks(15);
+			ctx.runOnClient(mc -> mc.gui.toastManager().clear());
+			ctx.waitTicks(2);
 			ctx.takeScreenshot("03_home");
 			clickWidget(ctx, 0); // first home card = Casino, clicked with the real left button
 			ctx.waitFor(mc -> mc.gui.screen() instanceof MineSinoScreen s && s.page() instanceof CasinoPage, 100);

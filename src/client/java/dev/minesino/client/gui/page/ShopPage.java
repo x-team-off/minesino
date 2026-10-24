@@ -204,14 +204,14 @@ public class ShopPage extends Page {
 		for (String c : categories) {
 			boolean sel = c.equals(category);
 			boolean hov = Ui.inside(mx, my, x, cy, catW, 13);
-			if (sel || hov) Ui.round(g, x, cy, catW, 13, 4, sel ? Theme.alpha(Theme.PURPLE, 0.35f) : Theme.CARD);
+			if (sel || hov) Ui.round(g, x, cy, catW, 13, 4, sel ? Theme.alpha(Theme.ACCENT, 0.35f) : Theme.CARD);
 			if (sel) Ui.round(g, x, cy + 2, 2, 9, 1, Theme.GOLD);
 			Ui.text(g, Ui.fit(catLabel(c), catW - 8), x + 5, cy + 2.5f, sel ? Theme.TEXT : Theme.TEXT_DIM);
 			cy += 14;
 			if (cy > y + h - 12) break;
 		}
 		// grid
-		Ui.panel(g, gridX, gridY, gridW, gridH, 6, 0xFF120F1A, Theme.BORDER);
+		Ui.panel(g, gridX, gridY, gridW, gridH, 6, 0xFF1A0F10, Theme.BORDER);
 		if (loading) Ui.center(g, Ui.tr("minesino.hud.loading"), gridX + gridW / 2, gridY + gridH / 2, Theme.MUTED);
 		else if (filtered.isEmpty()) Ui.center(g, Ui.tr("minesino.shop.empty"), gridX + gridW / 2, gridY + gridH / 2, Theme.MUTED);
 		int perRow = Math.max(1, (int) ((gridW - 4) / cell));

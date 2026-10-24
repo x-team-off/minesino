@@ -58,9 +58,9 @@ public final class Modal {
 		g.pose().translate(cx, cy);
 		g.pose().scale(k, k);
 		g.pose().translate(-cx, -cy);
-		Ui.glow(g, x, y, w, h, 14, Theme.alpha(Theme.PURPLE, 0.35f));
+		Ui.glow(g, x, y, w, h, 14, Theme.alpha(Theme.ACCENT, 0.35f));
 		Ui.panel(g, x, y, w, h, 8, Theme.SURFACE, Theme.BORDER_HI);
-		Ui.hGradient(g, x + 8, y, w - 16, 1.2f, Theme.PURPLE, Theme.GOLD);
+		Ui.hGradient(g, x + 8, y, w - 16, 1.2f, Theme.ACCENT, Theme.GOLD);
 		Ui.scaledCenter(g, title, x + w / 2, y + 10, 1.15f, Theme.TEXT, false);
 		float ly = y + 30;
 		for (Line l : lines) {

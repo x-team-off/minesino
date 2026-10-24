@@ -95,7 +95,7 @@ public class MobSaleScreen extends Screen {
 		g.pose().translate(-cx, -cy);
 		Ui.glow(g, x, y, w, h, 14, Theme.alpha(Theme.GOLD, 0.25f));
 		Ui.panel(g, x, y, w, h, 8, Theme.SURFACE, Theme.BORDER_HI);
-		Ui.hGradient(g, x + 8, y, w - 16, 1.2f, Theme.PURPLE, Theme.GOLD);
+		Ui.hGradient(g, x + 8, y, w - 16, 1.2f, Theme.ACCENT, Theme.GOLD);
 		Ui.logo(g, x + 10, y + 8, 1f);
 		Ui.right(g, Ui.tr("minesino.mob.title"), x + w - 10, y + 8, Theme.TEXT_DIM);
 		Ui.scaledCenter(g, Ui.fit(name, (w - 20) / 1.3f), x + w / 2, y + 26, 1.3f, Theme.TEXT, false);
@@ -103,7 +103,7 @@ public class MobSaleScreen extends Screen {
 		long left = Math.max(0, deadline - System.currentTimeMillis());
 		float frac = left / (float) Math.max(1, totalMs);
 		Ui.round(g, x + 12, y + 61, w - 24, 2, 1, Theme.BG);
-		Ui.round(g, x + 12, y + 61, (w - 24) * Math.min(1, frac), 2, 1, left > 5000 ? Theme.PURPLE : Theme.RED);
+		Ui.round(g, x + 12, y + 61, (w - 24) * Math.min(1, frac), 2, 1, left > 5000 ? Theme.ACCENT : Theme.RED);
 		if (error != null) Ui.center(g, Ui.fit(Ui.tr(error), w - 16), x + w / 2, y + 66, Theme.RED);
 		cancel.render(g, mx, my, 0.016f);
 		confirm.render(g, mx, my, 0.016f);

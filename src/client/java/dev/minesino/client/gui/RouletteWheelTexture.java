@@ -44,7 +44,7 @@ public final class RouletteWheelTexture {
 					rgb = mix(0xF5C451, 0x9C6B1A, Math.abs(t - 0.4) * 1.4);
 				} else if (d < c * 0.30) {
 					double t = d / (c * 0.30);
-					rgb = d < c * 0.27 ? mix(0x2A2338, 0x15111D, t) : 0xC9952B;
+					rgb = d < c * 0.27 ? mix(0x382326, 0x1D1113, t) : 0xC9952B;
 				} else {
 					double ang = Math.atan2(dx, -dy); // 0 at 12 o'clock, clockwise
 					if (ang < 0) ang += Math.PI * 2;

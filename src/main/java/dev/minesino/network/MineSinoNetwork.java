@@ -90,6 +90,16 @@ public final class MineSinoNetwork {
 		public Type<? extends CustomPacketPayload> type() { return TYPE; }
 	}
 
+	/** Another player (by entity id) took the tablet into their hand or put it away. */
+	public record TabletHolder(int entityId, boolean holding) implements CustomPacketPayload {
+		public static final Type<TabletHolder> TYPE = typeOf("tablet_holder");
+		public static final StreamCodec<ByteBuf, TabletHolder> CODEC = StreamCodec.composite(
+			ByteBufCodecs.VAR_INT, TabletHolder::entityId, ByteBufCodecs.BOOL, TabletHolder::holding, TabletHolder::new);
+
+		@Override
+		public Type<? extends CustomPacketPayload> type() { return TYPE; }
+	}
+
 	/** Opens the tablet UI with casino limits, enabled games and permissions. */
 	public record OpenScreen(String json) implements CustomPacketPayload {
 		public static final Type<OpenScreen> TYPE = typeOf("open_screen");
@@ -130,6 +140,7 @@ public final class MineSinoNetwork {
 		PayloadTypeRegistry.serverboundPlay().register(Action.TYPE, Action.CODEC);
 		PayloadTypeRegistry.clientboundPlay().register(Balance.TYPE, Balance.CODEC);
 		PayloadTypeRegistry.clientboundPlay().register(TabletSync.TYPE, TabletSync.CODEC);
+		PayloadTypeRegistry.clientboundPlay().register(TabletHolder.TYPE, TabletHolder.CODEC);
 		PayloadTypeRegistry.clientboundPlay().registerLarge(OpenScreen.TYPE, OpenScreen.CODEC, MAX_S2C_JSON * 3 + 64);
 		PayloadTypeRegistry.clientboundPlay().registerLarge(Response.TYPE, Response.CODEC, MAX_S2C_JSON * 3 + 256);
 		PayloadTypeRegistry.clientboundPlay().register(Notify.TYPE, Notify.CODEC);

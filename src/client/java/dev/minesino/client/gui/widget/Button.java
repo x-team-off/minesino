@@ -63,9 +63,9 @@ public class Button extends Widget {
 		int top, bottom, border, text;
 		switch (style) {
 			case PRIMARY -> {
-				top = Theme.lerp(0xFF9D74FA, 0xFFB394FF, hover);
-				bottom = Theme.lerp(Theme.PURPLE_DARK, 0xFF7C3AED, hover);
-				border = 0xFFA78BFA;
+				top = Theme.lerp(0xFFA5203A, 0xFFB82A45, hover);
+				bottom = Theme.lerp(Theme.ACCENT_DARK, 0xFF7A1026, hover);
+				border = 0xFFC9952B;
 				text = Theme.TEXT;
 			}
 			case GOLD -> {
@@ -75,7 +75,7 @@ public class Button extends Widget {
 				text = 0xFF2A1B05;
 			}
 			case DANGER -> {
-				top = Theme.lerp(0xFFF26B6B, 0xFFFF8585, hover);
+				top = Theme.lerp(0xFFB82A45, 0xFFFF8585, hover);
 				bottom = Theme.RED_DARK;
 				border = 0xFFFCA5A5;
 				text = Theme.TEXT;
@@ -90,7 +90,7 @@ public class Button extends Widget {
 				int base = sel ? Theme.CARD_PRESS : Theme.CARD;
 				top = Theme.lerp(base, Theme.CARD_HI, hover);
 				bottom = Theme.lerp(base, Theme.CARD_HI, hover * 0.7f);
-				border = sel ? Theme.PURPLE : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
+				border = sel ? Theme.GOLD_DARK : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
 				text = sel ? Theme.TEXT : Theme.lerp(Theme.TEXT_DIM, Theme.TEXT, hover);
 			}
 		}
@@ -102,9 +102,9 @@ public class Button extends Widget {
 		}
 		if (enabled && (hover > 0.01f || sel) && style != Style.GHOST && style != Style.CHIP && style != Style.ICON) {
 			Ui.glow(g, bx, by, bw, bh, 5 + 3 * hover, Theme.alpha(style == Style.GOLD ? Theme.GOLD : style == Style.DANGER ? Theme.RED
-				: style == Style.SUCCESS ? Theme.GREEN : Theme.PURPLE, 0.25f + 0.3f * hover));
+				: style == Style.SUCCESS ? Theme.GREEN : Theme.ACCENT, 0.25f + 0.3f * hover));
 		}
-		if (sel && (style == Style.GHOST || style == Style.CHIP)) Ui.glow(g, bx, by, bw, bh, 4, Theme.alpha(Theme.PURPLE, 0.35f));
+		if (sel && (style == Style.GHOST || style == Style.CHIP)) Ui.glow(g, bx, by, bw, bh, 4, Theme.alpha(Theme.ACCENT, 0.35f));
 		Ui.round(g, bx, by, bw, bh, r, border);
 		float b = 0.5f;
 		Ui.round(g, bx + b, by + b, bw - 2 * b, bh - 2 * b, Math.max(0, r - b), bottom);

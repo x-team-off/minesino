@@ -25,6 +25,6 @@ public final class ScrollState {
 		float h = Math.max(12, view * view / content);
 		float pos = (view - h) * (offset / Math.max(1, content - view));
 		Ui.round(g, x, y, 2, view, 1, 0x22FFFFFF);
-		Ui.round(g, x, y + pos, 2, h, 1, Theme.alpha(Theme.PURPLE, 0.8f));
+		Ui.round(g, x, y + pos, 2, h, 1, Theme.alpha(Theme.ACCENT, 0.8f));
 	}
 }

@@ -46,8 +46,8 @@ public final class TabletHud {
 		selectAnim = Anim.approach(selectAnim, active ? 1f : 0f, 1 / 60f, 12f);
 
 		// slot frame in the vanilla hotbar style but with MineSino accents
-		Ui.glow(g, x, y, 22, 22, 3 + 3 * selectAnim, Theme.alpha(Theme.PURPLE, 0.25f + 0.45f * selectAnim));
-		Ui.panel(g, x, y, 22, 22, 3, 0xD0141019, Theme.lerp(0xFF3A3150, Theme.GOLD, selectAnim));
+		Ui.glow(g, x, y, 22, 22, 3 + 3 * selectAnim, Theme.alpha(Theme.ACCENT, 0.25f + 0.45f * selectAnim));
+		Ui.panel(g, x, y, 22, 22, 3, 0xD0191011, Theme.lerp(0xFF503135, Theme.GOLD, selectAnim));
 		Ui.item(g, TabletItems.displayStack(), x + 3, y + 3, 16);
 		if (selectAnim > 0.01f) {
 			int c = Theme.alpha(Theme.GOLD, selectAnim);
@@ -82,7 +82,7 @@ public final class TabletHud {
 		float w = Math.max(22, tw + 8), h = 11;
 		float x = slotLeft;
 		float y = bottom - h;
-		Ui.panel(g, x, y, w, h, 4, 0xC8100D16, Theme.alpha(Theme.GOLD_DARK, 0.9f));
+		Ui.panel(g, x, y, w, h, 4, 0xC8160D0E, Theme.alpha(Theme.GOLD_DARK, 0.9f));
 		Ui.textShadow(g, text, x + 4, y + 2, color);
 		long since = System.currentTimeMillis() - ClientState.lastBalanceChange;
 		if (ClientState.lastDelta != 0 && since < 2000) {

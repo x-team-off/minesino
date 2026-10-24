@@ -204,7 +204,7 @@ public final class MineSinoCommands {
 		PlayerStats s = ms.economy.stats(id);
 		String who = name == null ? c.getSource().getTextName() : name;
 		CommandSourceStack src = c.getSource();
-		src.sendSystemMessage(Component.translatable("minesino.cmd.stats_header", who).withStyle(ChatFormatting.LIGHT_PURPLE));
+		src.sendSystemMessage(Component.translatable("minesino.cmd.stats_header", who).withStyle(ChatFormatting.RED));
 		src.sendSystemMessage(Component.translatable("minesino.stats.balance").append(": " + fmt(ms, ms.economy.balance(id))));
 		src.sendSystemMessage(Component.translatable("minesino.stats.rounds").append(": " + s.roundsPlayed + " (" + s.wins + " / " + s.losses + " / " + s.pushes + ")"));
 		src.sendSystemMessage(Component.translatable("minesino.stats.wagered").append(": " + fmt(ms, s.totalWagered)));
@@ -224,7 +224,7 @@ public final class MineSinoCommands {
 		EconomyManager.HistoryPage h = ms.economy.history(id, TxType.Group.ALL, page - 1, 10);
 		CommandSourceStack src = c.getSource();
 		src.sendSystemMessage(Component.translatable("minesino.cmd.history_header", name == null ? src.getTextName() : name, h.page() + 1, h.totalPages())
-			.withStyle(ChatFormatting.LIGHT_PURPLE));
+			.withStyle(ChatFormatting.RED));
 		for (Transaction t : h.entries()) {
 			ChatFormatting color = t.delta() > 0 ? ChatFormatting.GREEN : t.delta() < 0 ? ChatFormatting.RED : ChatFormatting.GRAY;
 			src.sendSystemMessage(Component.literal(TIME.format(Instant.ofEpochMilli(t.time())) + " ")
@@ -242,7 +242,7 @@ public final class MineSinoCommands {
 		CommandSourceStack src = c.getSource();
 		String version = net.fabricmc.loader.api.FabricLoader.getInstance().getModContainer(MineSino.MOD_ID)
 			.map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse("?");
-		src.sendSystemMessage(Component.literal("MineSino " + version).withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD));
+		src.sendSystemMessage(Component.literal("MineSino " + version).withStyle(ChatFormatting.RED, ChatFormatting.BOLD));
 		src.sendSystemMessage(Component.translatable("minesino.cmd.info_games", String.join(", ",
 			ms.casino.games().all().stream().filter(g -> ms.config().gameEnabled(g.id())).map(g -> g.id()).toList())));
 		src.sendSystemMessage(Component.translatable("minesino.cmd.info_prices", ms.prices().all().size(), ms.mobPrices().all().size()));

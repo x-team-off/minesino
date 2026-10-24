@@ -127,7 +127,7 @@ public class DicePage extends GamePage {
 		boolean win = done && Json.getBool(result, "win", false);
 		int border = done ? (win ? Theme.GOLD : Theme.RED) : Theme.BORDER_HI;
 		if (done) Ui.glow(g, cx - big / 2, cy - big / 2, big, big, 10, Theme.alpha(win ? Theme.GOLD : Theme.RED, 0.4f));
-		DicePainter.draw(g, face, cx, cy - jump, big, rot, 0xFFFAF7F0, 0xFF15121A, border);
+		DicePainter.draw(g, face, cx, cy - jump, big, rot, 0xFFFAF7F0, 0xFF1A1213, border);
 		for (int i = 1; i <= 6; i++) {
 			float fx = faceX(i);
 			boolean hov = !animating && Ui.inside(mx, my, fx, faceY, faceSize, faceSize);

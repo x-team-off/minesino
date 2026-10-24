@@ -48,8 +48,8 @@ public class HomePage extends Page {
 	protected void renderContent(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		float bannerH = Math.min(56, h * 0.26f);
 		Ui.glow(g, x, y, w, bannerH, 8, 0x55000000);
-		Ui.panel(g, x, y, w, bannerH, 8, 0xFF1A1428, Theme.BORDER_HI);
-		Ui.hGradient(g, x + 1, y + 1, w - 2, bannerH - 2, Theme.alpha(Theme.PURPLE_DARK, 0.35f), Theme.alpha(Theme.GOLD_DARK, 0.15f));
+		Ui.panel(g, x, y, w, bannerH, 8, 0xFF281417, Theme.BORDER_HI);
+		Ui.hGradient(g, x + 1, y + 1, w - 2, bannerH - 2, Theme.alpha(Theme.ACCENT_DARK, 0.35f), Theme.alpha(Theme.GOLD_DARK, 0.15f));
 		// shimmering accent line
 		float t = (Anim.now() % 4000) / 4000f;
 		Ui.hGradient(g, x + 8 + t * (w - 76), y + bannerH - 1.5f, 60, 1, Theme.alpha(Theme.GOLD, 0f), Theme.alpha(Theme.GOLD, 0.7f));
@@ -59,6 +59,6 @@ public class HomePage extends Page {
 		Ui.scaled(g, Ui.fit(bal, (w * 0.55f) / 1.8f), x + 12, top + 12, 1.8f, Theme.GOLD, true);
 		String hello = Ui.tr("minesino.home.welcome", screen.data.playerName);
 		Ui.right(g, Ui.fit(hello, w * 0.4f), x + w - 12, top + 2, Theme.TEXT);
-		Ui.right(g, Ui.tr("minesino.home.tagline"), x + w - 12, top + 15, Theme.alpha(0xFFB794FF, 0.9f));
+		Ui.right(g, Ui.tr("minesino.home.tagline"), x + w - 12, top + 15, Theme.alpha(0xFFE3C07A, 0.9f));
 	}
 }

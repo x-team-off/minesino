@@ -72,7 +72,7 @@ public class HistoryPage extends Page {
 	@Override
 	protected void renderContent(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		float ly = y + 20, lh = h - 40;
-		Ui.panel(g, x, ly, w, lh, 6, 0xFF120F1A, Theme.BORDER);
+		Ui.panel(g, x, ly, w, lh, 6, 0xFF1A0F10, Theme.BORDER);
 		float c1 = x + 6, c2 = x + 6 + Ui.width("00.00 00:00") + 8, c3 = x + w * 0.44f;
 		Ui.text(g, Ui.tr("minesino.history.time"), c1, ly + 4, Theme.MUTED);
 		Ui.text(g, Ui.tr("minesino.history.type"), c2, ly + 4, Theme.MUTED);
@@ -87,7 +87,7 @@ public class HistoryPage extends Page {
 		for (JsonElement e : entries) {
 			JsonObject o = e.getAsJsonObject();
 			if (ry + rowH > ly + lh) break;
-			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 3, i % 2 == 0 ? 0xFF17131F : 0xFF1B1725);
+			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 3, i % 2 == 0 ? 0xFF190B10 : 0xFF251719);
 			float ty = ry + (rowH - 2 - 8) / 2;
 			long delta = Json.getLong(o, "delta", 0);
 			String type = Json.getString(o, "type", "").toLowerCase(Locale.ROOT);

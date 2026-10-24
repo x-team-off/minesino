@@ -44,7 +44,7 @@ public final class ServerPackets {
 		MineSinoServer ms = MineSinoServer.get();
 		if (ms == null) return;
 		if (player.isSpectator()) selected = false;
-		ms.tablet.select(player.getUUID(), selected);
+		if (ms.tablet.select(player.getUUID(), selected)) ms.broadcastHolder(player);
 		ms.sendTabletSync(player);
 	}
 

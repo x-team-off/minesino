@@ -10,7 +10,7 @@ public class Slider extends Widget {
 	public double value;
 	private boolean dragging;
 	public DoubleConsumer onChange = v -> {};
-	public int accent = Theme.PURPLE;
+	public int accent = Theme.ACCENT;
 
 	@Override
 	public void render(GuiGraphicsExtractor g, int mx, int my, float dt) {

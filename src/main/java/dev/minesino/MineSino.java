@@ -15,8 +15,10 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.networking.v1.EntityTrackingEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import org.slf4j.Logger;
@@ -54,6 +56,15 @@ public class MineSino implements ModInitializer {
 		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
 			MineSinoServer ms = MineSinoServer.get();
 			if (ms != null) ms.onLeave(handler.player);
+		});
+		// Other players see the tablet in the hand of whoever has the tenth slot selected.
+		EntityTrackingEvents.START_TRACKING.register((entity, viewer) -> {
+			MineSinoServer ms = MineSinoServer.get();
+			if (ms != null && entity instanceof ServerPlayer holder) ms.sendHolder(holder, viewer, ms.tablet.isSelected(holder.getUUID()));
+		});
+		EntityTrackingEvents.STOP_TRACKING.register((entity, viewer) -> {
+			MineSinoServer ms = MineSinoServer.get();
+			if (ms != null && entity instanceof ServerPlayer holder) ms.sendHolder(holder, viewer, false);
 		});
 		// Forged tablet items dropped into the world are deleted on sight.
 		ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {

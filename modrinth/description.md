@@ -9,6 +9,7 @@
 - Колесо мыши проходит по кругу: 9 → планшет → 1.
 - **ПКМ** открывает MineSino, над слотом всегда виден баланс.
 - Планшет нельзя выбросить, потерять, положить в сундук или дюпнуть: это виртуальный слот, а не предмет.
+- Другие игроки видят планшет у вас в руке.
 
 ### 🎲 12 игр казино
 | | | |
@@ -31,7 +32,7 @@
 - Ориентиры цен: алмаз 1 500 MS, незеритовая броня ≈ 40 000 MS, яйцо дракона 1 000 000 MS.
 
 ### 🎨 Современный интерфейс
-- Тёмный графит, фиолетовые и золотые акценты, мягкие тени и свечение.
+- Винно-чёрный фон, бордовые и золотые акценты, как в дорогом казино; мягкие тени и свечение.
 - Гладкие скругления при любом масштабе GUI.
 - Плавные анимации: колесо рулетки, барабаны слотов, падение шарика, полёт ракеты.
 - История операций с фильтрами, статистика игрока, настройки эффектов и HUD.
@@ -66,5 +67,5 @@ A premium casino inside Minecraft. A tablet lives in a dedicated **10th hotbar s
 
 - Server-authoritative economy with exact money math, anti-dupe and anti-replay protection.
 - 1250+ item prices derived from real recipes, with no craft-and-sell profit loops.
-- Modern custom UI with smooth animations; Russian and English translations.
+- Burgundy & gold custom UI with smooth animations; other players see the tablet in your hand; Russian and English translations.
 - Works in singleplayer, LAN and on dedicated servers. Requires Fabric API; install on **both** server and client.

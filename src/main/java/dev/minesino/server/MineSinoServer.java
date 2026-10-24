@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -264,6 +265,18 @@ public final class MineSinoServer {
 		tablet.forget(id);
 		sync.forget(id);
 		saveAsync();
+	}
+
+	/** Tells {@code viewer} whether {@code holder} has the tablet in hand. */
+	public void sendHolder(ServerPlayer holder, ServerPlayer viewer, boolean holding) {
+		if (viewer == holder || !ServerPlayNetworking.canSend(viewer, MineSinoNetwork.TabletHolder.TYPE)) return;
+		ServerPlayNetworking.send(viewer, new MineSinoNetwork.TabletHolder(holder.getId(), holding));
+	}
+
+	/** Broadcasts the tablet selection of {@code holder} to every player that can see them. */
+	public void broadcastHolder(ServerPlayer holder) {
+		boolean holding = tablet.isSelected(holder.getUUID());
+		for (ServerPlayer viewer : PlayerLookup.tracking(holder)) sendHolder(holder, viewer, holding);
 	}
 
 	public void sendTabletSync(ServerPlayer player) {

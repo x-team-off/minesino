@@ -195,7 +195,7 @@ public abstract class GamePage extends Page {
 	@Override
 	protected void renderContent(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		// board surface
-		Ui.panel(g, bx, by, bw, bh, 8, 0xFF120F1A, Theme.BORDER);
+		Ui.panel(g, bx, by, bw, bh, 8, 0xFF1A0F10, Theme.BORDER);
 		Ui.gradient(g, bx + 1, by + 1, bw - 2, bh * 0.4f, Theme.alpha(dev.minesino.client.gui.Icons.accent(gameId), 0.07f), 0x00000000);
 		g.enableScissor((int) bx, (int) by, (int) (bx + bw), (int) (by + bh));
 		renderBoard(g, mx, my, dt);
@@ -226,7 +226,7 @@ public abstract class GamePage extends Page {
 			long payout = Json.getLong(o, "payout", 0), stake = Json.getLong(o, "bet", 0);
 			long net = payout - stake;
 			int color = net > 0 ? Theme.GREEN : net == 0 ? Theme.TEXT_DIM : Theme.RED;
-			Ui.round(g, sx, ry, sw, 10, 3, shown % 2 == 0 ? 0xFF17131F : 0xFF1B1725);
+			Ui.round(g, sx, ry, sw, 10, 3, shown % 2 == 0 ? 0xFF190B10 : 0xFF251719);
 			Ui.text(g, Ui.fit(recentLabel(o), sw * 0.55f), sx + 4, ry + 1, Theme.TEXT_DIM);
 			Ui.right(g, ClientState.moneySigned(net), sx + sw - 4, ry + 1, color);
 			ry += 11;
@@ -268,7 +268,7 @@ public abstract class GamePage extends Page {
 		g.pose().translate(cx, cy);
 		g.pose().scale(0.6f + 0.4f * in, 0.6f + 0.4f * in);
 		Ui.glow(g, -cw / 2, -ch / 2, cw, ch, 14, Theme.alpha(color, 0.45f * a));
-		Ui.panel(g, -cw / 2, -ch / 2, cw, ch, 9, Theme.alpha(0xF0120E1A, a), Theme.alpha(color, a));
+		Ui.panel(g, -cw / 2, -ch / 2, cw, ch, 9, Theme.alpha(0xF01A0E10, a), Theme.alpha(color, a));
 		Ui.center(g, head, 0, -ch / 2 + 7, Theme.alpha(Theme.TEXT, a));
 		Ui.scaledCenter(g, amount, 0, -ch / 2 + 19, 1.6f, Theme.alpha(color, a), true);
 		g.pose().popMatrix();

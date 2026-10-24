@@ -165,7 +165,7 @@ public class SellPage extends Page {
 		Ui.text(g, Ui.tr("minesino.sell.unit"), c2, y + 2, Theme.MUTED);
 		Ui.text(g, Ui.tr("minesino.sell.amount"), c3, y + 2, Theme.MUTED);
 		Ui.right(g, Ui.tr("minesino.sell.total"), x + w - 6, y + 2, Theme.MUTED);
-		Ui.panel(g, x, listY, w, listH, 6, 0xFF120F1A, Theme.BORDER);
+		Ui.panel(g, x, listY, w, listH, 6, 0xFF1A0F10, Theme.BORDER);
 		if (loading) Ui.center(g, Ui.tr("minesino.hud.loading"), x + w / 2, listY + listH / 2, Theme.MUTED);
 		else if (rows.isEmpty()) Ui.center(g, Ui.tr("minesino.sell.empty"), x + w / 2, listY + listH / 2, Theme.MUTED);
 		g.enableScissor((int) x, (int) listY + 1, (int) (x + w), (int) (listY + listH) - 1);
@@ -174,7 +174,7 @@ public class SellPage extends Page {
 			float ry = listY + 2 + i * rowH - scroll.offset;
 			if (ry + rowH < listY || ry > listY + listH) continue;
 			boolean hov = Ui.inside(mx, my, x, ry, w, rowH) && my > listY && my < listY + listH;
-			int bg = r.chosen > 0 ? 0xFF1E2A1F : hov ? Theme.CARD_HI : i % 2 == 0 ? 0xFF17131F : 0xFF1A1623;
+			int bg = r.chosen > 0 ? 0xFF1E2A1F : hov ? Theme.CARD_HI : i % 2 == 0 ? 0xFF190B10 : 0xFF231618;
 			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 4, bg);
 			if (r.chosen > 0) Ui.round(g, x + 2, ry + 3, 2, rowH - 8, 1, Theme.GREEN);
 			g.item(r.display, (int) x + 6, (int) ry + 1);
@@ -202,7 +202,7 @@ public class SellPage extends Page {
 
 	private void stepper(GuiGraphicsExtractor g, int mx, int my, float sx, float sy, String label, boolean enabled) {
 		boolean hov = enabled && Ui.inside(mx, my, sx, sy, 12, 12);
-		Ui.round(g, sx, sy, 12, 12, 3, !enabled ? 0xFF1A1622 : hov ? Theme.PURPLE : Theme.CARD_HI);
+		Ui.round(g, sx, sy, 12, 12, 3, !enabled ? 0xFF221618 : hov ? Theme.ACCENT : Theme.CARD_HI);
 		Ui.center(g, label, sx + 6.5f, sy + 2, enabled ? Theme.TEXT : Theme.MUTED);
 	}
 

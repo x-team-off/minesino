@@ -27,13 +27,13 @@ final class CardPainter {
 		if (face) {
 			Ui.panel(g, l, t, w, h, 3, 0xFFFBF8F1, 0xFFB8B2A6);
 			int suit = card / 13;
-			int color = suit == 1 || suit == 2 ? 0xFFC81E1E : 0xFF15121A;
+			int color = suit == 1 || suit == 2 ? 0xFFC81E1E : 0xFF1A1213;
 			Ui.text(g, rank(card), l + 3, t + 3, color);
 			Ui.text(g, SUITS[suit], l + 3, t + 12, color);
 			Ui.scaledCenter(g, SUITS[suit], 0, -6, 1.6f, color, false);
 		} else {
-			Ui.panel(g, l, t, w, h, 3, Theme.PURPLE_DARK, Theme.GOLD_DARK);
-			Ui.panel(g, l + 3, t + 3, w - 6, h - 6, 2, 0xFF3B1E73, Theme.alpha(Theme.GOLD, 0.6f));
+			Ui.panel(g, l, t, w, h, 3, Theme.ACCENT_DARK, Theme.GOLD_DARK);
+			Ui.panel(g, l + 3, t + 3, w - 6, h - 6, 2, 0xFF4A0E1A, Theme.alpha(Theme.GOLD, 0.6f));
 			Ui.logo(g, -Ui.width("MineSino") * 0.3f, -3, 0.6f);
 		}
 		g.pose().popMatrix();

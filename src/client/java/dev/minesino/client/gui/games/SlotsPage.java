@@ -166,7 +166,7 @@ public class SlotsPage extends GamePage {
 			case 1 -> Theme.NEON;
 			case 2 -> Theme.PINK;
 			case 3 -> Theme.GREEN;
-			default -> Theme.PURPLE;
+			default -> Theme.ACCENT;
 		};
 	}
 

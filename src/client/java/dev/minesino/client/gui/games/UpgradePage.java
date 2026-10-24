@@ -207,7 +207,7 @@ public class UpgradePage extends GamePage {
 			double ang = a * Math.PI * 2;
 			boolean win = a < ch;
 			float px = cx + (float) Math.sin(ang) * r, py = cy - (float) Math.cos(ang) * r;
-			Ui.circle(g, px, py, r * 0.075f, win ? Theme.lerp(Theme.GREEN_DARK, Theme.GREEN, (float) (a / Math.max(0.01, ch))) : 0xFF2A2338);
+			Ui.circle(g, px, py, r * 0.075f, win ? Theme.lerp(Theme.GREEN_DARK, Theme.GREEN, (float) (a / Math.max(0.01, ch))) : 0xFF382326);
 		}
 		double pa = (p % 1f) * Math.PI * 2;
 		float ppx = cx + (float) Math.sin(pa) * r * 0.78f, ppy = cy - (float) Math.cos(pa) * r * 0.78f;

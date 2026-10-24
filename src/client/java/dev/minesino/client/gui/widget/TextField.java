@@ -48,8 +48,8 @@ public class TextField extends Widget {
 	public void render(GuiGraphicsExtractor g, int mx, int my, float dt) {
 		if (!visible) return;
 		updateHover(mx, my, dt);
-		int border = focused ? Theme.PURPLE : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
-		if (focused) Ui.glow(g, x, y, w, h, 4, Theme.alpha(Theme.PURPLE, 0.35f));
+		int border = focused ? Theme.GOLD_DARK : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
+		if (focused) Ui.glow(g, x, y, w, h, 4, Theme.alpha(Theme.ACCENT, 0.35f));
 		Ui.panel(g, x, y, w, h, 4, Theme.BG, border);
 		float ty = y + (h - 8) / 2f + 0.5f;
 		float sw = suffix.isEmpty() ? 0 : Ui.width(suffix) + 4;

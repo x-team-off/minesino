@@ -30,7 +30,7 @@ public final class Toasts {
 			float h = t.body().isEmpty() ? 16 : 26;
 			float x = screenW - 6 - w + (1 - in) * (w + 10);
 			Ui.glow(g, x, y, w, h, 6, Theme.alpha(t.color(), 0.3f * out));
-			Ui.panel(g, x, y, w, h, 6, Theme.alpha(0xF0141019, out), Theme.alpha(t.color(), out));
+			Ui.panel(g, x, y, w, h, 6, Theme.alpha(0xF0191011, out), Theme.alpha(t.color(), out));
 			Ui.round(g, x + 4, y + 4, 3, h - 8, 1.5f, Theme.alpha(t.color(), out));
 			Ui.text(g, Ui.fit(t.title(), w - 16), x + 11, y + 4, Theme.alpha(Theme.TEXT, out));
 			if (!t.body().isEmpty()) Ui.text(g, Ui.fit(t.body(), w - 16), x + 11, y + 14, Theme.alpha(t.color(), out));

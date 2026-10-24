@@ -211,7 +211,7 @@ public final class Ui {
 	public static void logo(GuiGraphicsExtractor g, float x, float y, float k) {
 		String a = "Mine", b = "Sino";
 		float glowA = 0.25f + 0.25f * Anim.pulse(3f);
-		scaled(g, a + b, x + 0.6f, y + 0.6f, k, Theme.alpha(Theme.PURPLE, glowA), false);
+		scaled(g, a + b, x + 0.6f, y + 0.6f, k, Theme.alpha(Theme.ACCENT, glowA), false);
 		scaled(g, a, x, y, k, Theme.TEXT, false);
 		scaled(g, b, x + width(a) * k, y, k, Theme.GOLD, false);
 	}
