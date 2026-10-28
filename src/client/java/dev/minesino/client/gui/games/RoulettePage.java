@@ -296,4 +296,19 @@ public class RoulettePage extends GamePage {
 		int n = Json.getInt(o, "number", -1);
 		return n < 0 ? "?" : "#" + n;
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		int n = Json.getInt(o, "number", -1);
+		return n < 0 ? "?" : Integer.toString(n);
+	}
+
+	@Override
+	protected int historyColor(JsonObject o) {
+		return switch (Json.getString(o, "color", "")) {
+			case "red" -> 0xFFE11D2E;
+			case "green" -> Theme.GREEN;
+			default -> 0xFF9A9AA5;
+		};
+	}
 }

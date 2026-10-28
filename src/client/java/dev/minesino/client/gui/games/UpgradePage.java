@@ -253,4 +253,9 @@ public class UpgradePage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return "×" + mult(Json.getLong(o, "mult", 0)) + (Json.getBool(o, "success", false) ? " ✔" : " ✘");
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return "×" + mult(Json.getLong(o, "mult", 0));
+	}
 }

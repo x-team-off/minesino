@@ -133,12 +133,33 @@ public class ShopPage extends Page {
 		});
 	}
 
+	/** Items shown with the current category and search (for tests). */
+	public int visibleCount() {
+		return filtered.size();
+	}
+
+	public int totalCount() {
+		return all.size();
+	}
+
+	/** Lower case, "ё" as "е", "_" and ":" as spaces, so "блок алмаза", "diamond block" and "diamond_block" all match. */
+	private static String norm(String s) {
+		return s.toLowerCase(Locale.ROOT).replace('ё', 'е').replace('_', ' ').replace(':', ' ');
+	}
+
 	private void applyFilter() {
 		filtered.clear();
-		String q = search == null ? "" : search.text().toLowerCase(Locale.ROOT).trim();
+		String[] words = norm(search == null ? "" : search.text()).trim().split("\\s+");
+		boolean searching = words.length > 0 && !words[0].isEmpty();
 		for (Entry e : all) {
-			if (!category.equals("ALL") && !e.cat().equals(category)) continue;
-			if (!q.isEmpty() && !e.name().toLowerCase(Locale.ROOT).contains(q) && !e.id().contains(q)) continue;
+			// A search looks through every category, otherwise "алмаз" finds nothing while "Food" is open.
+			if (!searching && !category.equals("ALL") && !e.cat().equals(category)) continue;
+			if (searching) {
+				String hay = norm(e.name()) + " " + norm(e.id());
+				boolean match = true;
+				for (String wd : words) if (!hay.contains(wd)) { match = false; break; }
+				if (!match) continue;
+			}
 			filtered.add(e);
 		}
 		scroll.reset();

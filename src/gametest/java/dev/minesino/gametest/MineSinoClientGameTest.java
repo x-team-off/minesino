@@ -65,6 +65,20 @@ public class MineSinoClientGameTest implements FabricClientGameTest {
 			check(chest >= 3_000_000 && chest <= 5_000_000, "netherite chestplate ~40k MS: " + chest / 100);
 			long egg = sp.getServer().computeOnServer(srv -> MineSinoServer.get().prices().unitPrice("minecraft:dragon_egg").floor());
 			check(egg == 100_000_000, "dragon egg = 1 000 000 MS");
+			// full price table for review: build/run/clientGameTest/prices_dump.tsv (id, MS, category)
+			sp.getServer().runOnServer(srv -> {
+				MineSinoServer ms = MineSinoServer.get();
+				StringBuilder sb = new StringBuilder();
+				net.minecraft.core.registries.BuiltInRegistries.ITEM.keySet().stream().map(Object::toString).sorted().forEach(id -> {
+					var pr = ms.prices().unitPrice(id);
+					sb.append(id).append('\t').append(pr == null ? "-" : String.valueOf(pr.floor() / 100.0)).append('\t').append(ms.prices().category(id)).append('\n');
+				});
+				try {
+					java.nio.file.Files.writeString(java.nio.file.Path.of("prices_dump.tsv"), sb);
+				} catch (java.io.IOException e) {
+					throw new IllegalStateException(e);
+				}
+			});
 			String golem = sp.getServer().computeOnServer(srv -> String.valueOf(MineSinoServer.get().mobPrices().price("minecraft:iron_golem")));
 			LOG.info("[MineSinoTest] iron golem price = {}", golem);
 
@@ -126,6 +140,13 @@ public class MineSinoClientGameTest implements FabricClientGameTest {
 			ctx.waitFor(mc -> mc.gui.screen() instanceof MineSinoScreen s && s.page() instanceof CasinoPage, 100);
 			ctx.waitTicks(15);
 			ctx.takeScreenshot("04_casino_lobby");
+			// a few past rounds so the "last results" strip on each board has something to show
+			for (int i = 0; i < 4; i++) {
+				call(ctx, "game:dice", "roll", "{\"bet\":100,\"faces\":[1,2,3]}");
+				call(ctx, "game:roulette", "spin", "{\"bets\":[{\"type\":\"red\",\"amount\":100}]}");
+				call(ctx, "game:crash", "launch", "{\"bet\":100,\"auto\":101}");
+				ctx.waitTicks(10); // auto cash-out at x1.01 (or the rocket blows) on the server tick
+			}
 			for (String game : GamePages.ORDER) {
 				navigate(ctx, () -> GamePages.create(game));
 				ctx.takeScreenshot("10_game_" + game);
@@ -152,6 +173,21 @@ public class MineSinoClientGameTest implements FabricClientGameTest {
 			navigate(ctx, ShopPage::new);
 			ctx.waitTicks(10);
 			ctx.takeScreenshot("31_shop");
+			// search: click the field with the real mouse and type with real key events
+			ctx.waitFor(mc -> shop(mc).totalCount() > 0, 100);
+			int shopTotal = ctx.computeOnClient(mc -> shop(mc).totalCount());
+			clickWidget(ctx, 0);
+			ctx.waitTicks(2);
+			ctx.getInput().typeChars("diamond");
+			ctx.waitTicks(5);
+			int found = ctx.computeOnClient(mc -> shop(mc).visibleCount());
+			LOG.info("[MineSinoTest] shop search 'diamond': {} of {}", found, shopTotal);
+			check(found > 0 && found < shopTotal, "shop search filters items: " + found + " of " + shopTotal);
+			ctx.getInput().typeChars(" block");
+			ctx.waitTicks(5);
+			int block = ctx.computeOnClient(mc -> shop(mc).visibleCount());
+			check(block >= 1 && block < found, "multi-word search 'diamond block': " + block);
+			ctx.takeScreenshot("31_shop_search");
 			navigate(ctx, HistoryPage::new);
 			ctx.takeScreenshot("32_history");
 			navigate(ctx, StatsPage::new);
@@ -304,6 +340,10 @@ public class MineSinoClientGameTest implements FabricClientGameTest {
 		} catch (ReflectiveOperationException e) {
 			return false;
 		}
+	}
+
+	private static ShopPage shop(net.minecraft.client.Minecraft mc) {
+		return (ShopPage) ((MineSinoScreen) mc.gui.screen()).page();
 	}
 
 	/** Clicks the n-th widget of the current page with the real left mouse button. */

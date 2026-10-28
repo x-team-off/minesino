@@ -232,4 +232,16 @@ public class CrashPage extends GamePage {
 		long c = Json.getLong(o, "cashedAt", 0);
 		return c > 0 ? "✔ ×" + mult(c) : "@" + mult(Json.getLong(o, "crash", 100)) + "×";
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return "×" + mult(Json.getLong(o, "crash", 100));
+	}
+
+	/** Coloured by where the rocket blew up, like crash sites: red below ×2, green from ×2, gold from ×10. */
+	@Override
+	protected int historyColor(JsonObject o) {
+		long c = Json.getLong(o, "crash", 100);
+		return c >= 1000 ? Theme.GOLD : c >= 200 ? Theme.GREEN : Theme.RED;
+	}
 }

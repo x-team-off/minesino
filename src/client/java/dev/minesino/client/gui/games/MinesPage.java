@@ -187,4 +187,9 @@ public class MinesPage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return Ui.tr("minesino.mines.recent", Json.getInt(o, "mines", 0), Json.getInt(o, "revealed", 0));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Json.getInt(o, "revealed", 0) + "/" + (25 - Json.getInt(o, "mines", 0));
+	}
 }

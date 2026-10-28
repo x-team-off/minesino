@@ -112,4 +112,9 @@ public class WheelPage extends GamePage {
 	protected void renderSideInfo(GuiGraphicsExtractor g, float x, float y, float w) {
 		Ui.text(g, Ui.fit(Ui.tr("minesino.wheel.rules"), w), x, y, Theme.MUTED);
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return "×" + mult(Json.getLong(o, "mult", 0));
+	}
 }

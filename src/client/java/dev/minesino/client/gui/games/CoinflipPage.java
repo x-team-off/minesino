@@ -109,4 +109,14 @@ public class CoinflipPage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return Ui.tr("minesino.coin." + Json.getString(o, "result", "heads"));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Ui.tr("minesino.coin." + Json.getString(o, "result", "heads"));
+	}
+
+	@Override
+	protected int historyColor(JsonObject o) {
+		return "heads".equals(Json.getString(o, "result", "heads")) ? Theme.GOLD : 0xFFB8BCC6;
+	}
 }

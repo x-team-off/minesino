@@ -147,4 +147,9 @@ public class HiLoPage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return Ui.tr("minesino.hilo.recent", Json.getInt(o, "steps", 0));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Integer.toString(Json.getInt(o, "steps", 0));
+	}
 }

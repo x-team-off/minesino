@@ -154,4 +154,9 @@ public class KenoPage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return Ui.tr("minesino.keno.recent", Json.getInt(o, "hits", 0), Json.getInt(o, "picks", 0));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Json.getInt(o, "hits", 0) + "/" + Json.getInt(o, "picks", 0);
+	}
 }

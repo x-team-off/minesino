@@ -26,6 +26,8 @@ public abstract class GamePage extends Page {
 	protected BetPanel bet;
 	protected Button playButton;
 	protected JsonArray recent = new JsonArray();
+	/** History that already contains the round being animated; shown only once the outcome is revealed. */
+	private JsonArray pendingRecent;
 	/** Balance shown in the header until the current animation finishes. */
 	protected Long held;
 	protected boolean animating;
@@ -149,7 +151,7 @@ public abstract class GamePage extends Page {
 	/** Default handling of a one-shot result: start the animation. */
 	protected void onResult(JsonObject data) {
 		result = data;
-		if (data.has("recent")) recent = data.getAsJsonArray("recent");
+		if (data.has("recent")) pendingRecent = data.getAsJsonArray("recent");
 		animating = true;
 		animStart = Anim.now();
 		startAnimation(data);
@@ -167,6 +169,10 @@ public abstract class GamePage extends Page {
 	protected void finishAnimation() {
 		animating = false;
 		held = null;
+		if (pendingRecent != null) {
+			recent = pendingRecent;
+			pendingRecent = null;
+		}
 		lockInputs(false);
 		if (result != null && result.has("payout")) {
 			long payout = Json.getLong(result, "payout", 0), stake = Json.getLong(result, "bet", 0);
@@ -204,6 +210,7 @@ public abstract class GamePage extends Page {
 		if (bet != null) Ui.text(g, Ui.tr("minesino.ui.stake"), sx, y + 2, Theme.MUTED);
 		renderSideInfo(g, sx, sideY, sw);
 		renderRecent(g);
+		renderHistoryStrip(g);
 		renderBanner(g);
 	}
 
@@ -233,6 +240,44 @@ public abstract class GamePage extends Page {
 			shown++;
 		}
 		if (shown == 0) Ui.text(g, Ui.tr("minesino.ui.no_rounds"), sx, ry, Theme.alpha(Theme.MUTED, 0.7f));
+	}
+
+	/** How many past results the strip on top of the board shows. */
+	protected static final int STRIP = 5;
+
+	/** Last results as chips in the top-right corner of the board, newest on the left. */
+	protected void renderHistoryStrip(GuiGraphicsExtractor g) {
+		int n = Math.min(STRIP, recent.size());
+		if (n == 0) return;
+		String[] labels = new String[n];
+		float total = 0;
+		for (int i = 0; i < n; i++) {
+			labels[i] = historyChip(recent.get(i).getAsJsonObject());
+			total += Ui.width(labels[i]) + 8 + 3;
+		}
+		float cx = bx + bw - 5 - total + 3, cy = by + 5;
+		for (int i = 0; i < n; i++) {
+			JsonObject o = recent.get(i).getAsJsonObject();
+			int color = historyColor(o);
+			float cw = Ui.width(labels[i]) + 8;
+			float a = i == 0 ? 1f : 0.85f - i * 0.1f;
+			Ui.round(g, cx, cy, cw, 11, 3, Theme.alpha(color, 0.9f * a));
+			Ui.round(g, cx + 0.5f, cy + 0.5f, cw - 1, 10, 2.5f, Theme.alpha(Theme.lerp(Theme.BG, color, 0.28f), a));
+			Ui.text(g, labels[i], cx + 4, cy + 1.5f, Theme.alpha(i == 0 ? Theme.TEXT : Theme.lerp(Theme.TEXT_DIM, color, 0.5f), Math.max(0.5f, a)));
+			cx += cw + 3;
+		}
+	}
+
+	/** Short chip text for the history strip (game specific: crash point, rolled number...). */
+	protected String historyChip(JsonObject o) {
+		long payout = Json.getLong(o, "payout", 0), stake = Math.max(1, Json.getLong(o, "bet", 1));
+		return "×" + mult(payout * 100 / stake);
+	}
+
+	/** Chip colour: green for a win, red for a loss, grey for a push. */
+	protected int historyColor(JsonObject o) {
+		long payout = Json.getLong(o, "payout", 0), stake = Json.getLong(o, "bet", 0);
+		return payout > stake ? Theme.GREEN : payout == stake ? Theme.TEXT_DIM : Theme.RED;
 	}
 
 	/** Short description of a past round, e.g. the multiplier. */

@@ -158,4 +158,9 @@ public class PlinkoPage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return "×" + mult(Json.getLong(o, "mult", 0)) + " · " + Ui.tr("minesino.plinko." + Json.getString(o, "risk", "low"));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return "×" + mult(Json.getLong(o, "mult", 0));
+	}
 }

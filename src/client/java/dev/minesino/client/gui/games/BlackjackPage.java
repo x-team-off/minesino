@@ -166,4 +166,9 @@ public class BlackjackPage extends GamePage {
 	protected void renderSideInfo(GuiGraphicsExtractor g, float x, float y, float w) {
 		Ui.text(g, Ui.fit(Ui.tr("minesino.blackjack.payout", Json.getInt(info, "naturalNum", 3) + ":" + Json.getInt(info, "naturalDen", 2)), w), x, y, Theme.MUTED);
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Json.getInt(o, "player", 0) + ":" + Json.getInt(o, "dealer", 0);
+	}
 }

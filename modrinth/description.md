@@ -21,6 +21,7 @@
 
 - Удобная ставка: поле суммы, ½, ×2, MIN, MAX, быстрые суммы; последняя ставка запоминается.
 - Честная математика: у каждой игры прозрачные шансы, отдача 94–99 %.
+- Полоса из 5 последних результатов в каждой игре: точки краша, выпавшие числа, номера рулетки.
 - Результат всегда определяет сервер. Если закрыть планшет посреди раунда, он завершится сам.
 
 ### 💰 Экономика
@@ -28,7 +29,7 @@
 - **Продажа предметов** из инвентаря с предпросмотром суммы перед подтверждением.
 - **Продажа мобов**: Shift + ПКМ по мобу с выбранным планшетом. Питомцы, именованные мобы, жители и игроки защищены.
 - **Магазин** («Вывести средства»): блоки, ресурсы, еда, редкие предметы и **яйца призыва**, быстрый выбор количества 1/4/16/32/64.
-- **1250+ предметов с ценами**, выведенными из реальных рецептов игры: блок железа = 9 слитков, полублок = половина доски, а крафт с последующей продажей никогда не приносит прибыли.
+- **1500 предметов с ценами**, выведенными из реальных рецептов игры: блок железа = 9 слитков, полублок = половина доски, а крафт с последующей продажей никогда не приносит прибыли.
 - Ориентиры цен: алмаз 1 500 MS, незеритовая броня ≈ 40 000 MS, яйцо дракона 1 000 000 MS.
 
 ### 🎨 Современный интерфейс
@@ -66,6 +67,6 @@
 A premium casino inside Minecraft. A tablet lives in a dedicated **10th hotbar slot** (key **0**). Use it to play **12 casino games** (roulette, slots, blackjack, plinko, crash with live cash-out, mines, dice, coinflip, upgrade, wheel of fortune, hi-lo, keno), sell items and mobs, and buy items and spawn eggs.
 
 - Server-authoritative economy with exact money math, anti-dupe and anti-replay protection.
-- 1250+ item prices derived from real recipes, with no craft-and-sell profit loops.
+- 1500 item prices derived from real recipes, with no craft-and-sell profit loops.
 - Neon red & gold custom UI with smooth animations; other players see the tablet in your hand; Russian and English translations.
 - Works in singleplayer, LAN and on dedicated servers. Requires Fabric API; install on **both** server and client.

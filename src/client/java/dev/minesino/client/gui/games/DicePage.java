@@ -160,4 +160,9 @@ public class DicePage extends GamePage {
 	protected String recentLabel(JsonObject o) {
 		return Ui.tr("minesino.dice.rolled", Json.getInt(o, "roll", 0));
 	}
+
+	@Override
+	protected String historyChip(JsonObject o) {
+		return Integer.toString(Json.getInt(o, "roll", 0));
+	}
 }
