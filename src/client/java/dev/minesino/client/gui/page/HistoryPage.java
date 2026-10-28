@@ -87,7 +87,7 @@ public class HistoryPage extends Page {
 		for (JsonElement e : entries) {
 			JsonObject o = e.getAsJsonObject();
 			if (ry + rowH > ly + lh) break;
-			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 3, i % 2 == 0 ? 0xFF190B10 : 0xFF251719);
+			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 3, i % 2 == 0 ? 0xFF120A0C : 0xFF251719);
 			float ty = ry + (rowH - 2 - 8) / 2;
 			long delta = Json.getLong(o, "delta", 0);
 			String type = Json.getString(o, "type", "").toLowerCase(Locale.ROOT);

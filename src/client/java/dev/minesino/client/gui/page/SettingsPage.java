@@ -51,7 +51,7 @@ public class SettingsPage extends Page {
 		String[] keys = {"animations", "reduced_effects", "sounds", "hud_balance", "compact_numbers", "toasts", "animation_speed"};
 		for (int i = 0; i < keys.length; i++) {
 			float ry = rowsY + i * 20;
-			Ui.round(g, x, ry - 2, w, 19, 5, i % 2 == 0 ? 0xFF190B10 : 0xFF231618);
+			Ui.round(g, x, ry - 2, w, 19, 5, i % 2 == 0 ? 0xFF120A0C : 0xFF231618);
 			Ui.text(g, Ui.tr("minesino.settings." + keys[i]), x + 8, ry + 2, Theme.TEXT);
 			Ui.text(g, Ui.fit(Ui.tr("minesino.settings." + keys[i] + ".desc"), w - 200), x + 150, ry + 2, Theme.MUTED);
 		}

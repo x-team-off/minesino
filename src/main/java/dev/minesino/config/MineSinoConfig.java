@@ -159,8 +159,11 @@ public final class MineSinoConfig {
 		public boolean allowBabies = false;
 		/** Price factor for animals born from breeding (anti breeding-farm abuse). */
 		public BigDecimal bredMultiplier = new BigDecimal("0.25");
-		/** Price factor for iron golems that were not built by a player (iron farms). */
-		public BigDecimal naturalGolemMultiplier = new BigDecimal("0.1");
+		/**
+		 * Price factor for iron golems that were not built by a player (villages, spawn eggs, iron farms).
+		 * 1.0 = every golem is worth its recipe (4 iron blocks + carved pumpkin); lower it to tax iron farms.
+		 */
+		public BigDecimal naturalGolemMultiplier = new BigDecimal("1.0");
 		public double maxDistance = 6.0;
 		/** Seconds a confirmation offer stays valid. */
 		public int offerTimeoutSeconds = 20;

@@ -226,7 +226,7 @@ public abstract class GamePage extends Page {
 			long payout = Json.getLong(o, "payout", 0), stake = Json.getLong(o, "bet", 0);
 			long net = payout - stake;
 			int color = net > 0 ? Theme.GREEN : net == 0 ? Theme.TEXT_DIM : Theme.RED;
-			Ui.round(g, sx, ry, sw, 10, 3, shown % 2 == 0 ? 0xFF190B10 : 0xFF251719);
+			Ui.round(g, sx, ry, sw, 10, 3, shown % 2 == 0 ? 0xFF120A0C : 0xFF251719);
 			Ui.text(g, Ui.fit(recentLabel(o), sw * 0.55f), sx + 4, ry + 1, Theme.TEXT_DIM);
 			Ui.right(g, ClientState.moneySigned(net), sx + sw - 4, ry + 1, color);
 			ry += 11;

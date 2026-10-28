@@ -59,6 +59,6 @@ public class HomePage extends Page {
 		Ui.scaled(g, Ui.fit(bal, (w * 0.55f) / 1.8f), x + 12, top + 12, 1.8f, Theme.GOLD, true);
 		String hello = Ui.tr("minesino.home.welcome", screen.data.playerName);
 		Ui.right(g, Ui.fit(hello, w * 0.4f), x + w - 12, top + 2, Theme.TEXT);
-		Ui.right(g, Ui.tr("minesino.home.tagline"), x + w - 12, top + 15, Theme.alpha(0xFFE3C07A, 0.9f));
+		Ui.right(g, Ui.tr("minesino.home.tagline"), x + w - 12, top + 15, Theme.alpha(0xFFFF5C70, 0.9f));
 	}
 }

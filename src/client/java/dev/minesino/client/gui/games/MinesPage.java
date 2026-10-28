@@ -171,7 +171,7 @@ public class MinesPage extends GamePage {
 			} else {
 				int fill = hov ? Theme.CARD_HI : Theme.CARD;
 				if (hov) Ui.glow(g, x0, y0, s, s, 4, Theme.alpha(Theme.ACCENT, 0.4f));
-				Ui.panel(g, x0, y0 - (hov ? 1 : 0), s, s, 4, fill, hov ? Theme.GOLD_DARK : Theme.BORDER);
+				Ui.panel(g, x0, y0 - (hov ? 1 : 0), s, s, 4, fill, hov ? Theme.ACCENT : Theme.BORDER);
 				Ui.gradient(g, x0 + 1, y0 + 1, s - 2, s * 0.4f, 0x18FFFFFF, 0x00000000);
 				if (finished) Ui.rect(g, x0, y0, s, s, 0x55000000);
 			}

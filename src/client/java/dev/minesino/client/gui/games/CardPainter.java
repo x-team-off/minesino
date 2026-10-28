@@ -33,7 +33,7 @@ final class CardPainter {
 			Ui.scaledCenter(g, SUITS[suit], 0, -6, 1.6f, color, false);
 		} else {
 			Ui.panel(g, l, t, w, h, 3, Theme.ACCENT_DARK, Theme.GOLD_DARK);
-			Ui.panel(g, l + 3, t + 3, w - 6, h - 6, 2, 0xFF4A0E1A, Theme.alpha(Theme.GOLD, 0.6f));
+			Ui.panel(g, l + 3, t + 3, w - 6, h - 6, 2, 0xFF5C0A16, Theme.alpha(Theme.GOLD, 0.6f));
 			Ui.logo(g, -Ui.width("MineSino") * 0.3f, -3, 0.6f);
 		}
 		g.pose().popMatrix();

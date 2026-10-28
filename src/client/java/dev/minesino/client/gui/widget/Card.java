@@ -47,7 +47,7 @@ public class Card extends Widget {
 			if (cta != null && h >= 64) {
 				float cw = Ui.width(cta) + 12;
 				Ui.round(g, x + w - cw - 7, cy + 8, cw, 12, 6, Theme.alpha(accent, 0.2f + 0.6f * hover));
-				Ui.center(g, cta, x + w - cw / 2 - 7, cy + 10, hover > 0.5f ? 0xFF10070A : Theme.TEXT);
+				Ui.center(g, cta, x + w - cw / 2 - 7, cy + 10, hover > 0.5f ? 0xFF0A0607 : Theme.TEXT);
 			}
 		}
 	}

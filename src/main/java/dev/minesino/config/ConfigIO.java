@@ -116,7 +116,7 @@ public final class ConfigIO {
 		c.put("mobs", "Selling mobs with Shift + right click.");
 		c.put("mobs.requireTablet", "Require the tablet slot to be selected when selling mobs.");
 		c.put("mobs.bredMultiplier", "Price factor for bred animals; keeps breeding farms from printing money.");
-		c.put("mobs.naturalGolemMultiplier", "Price factor for iron golems not built by a player.");
+		c.put("mobs.naturalGolemMultiplier", "Price factor for iron golems not built by a player (villages, eggs, iron farms). 1.0 = full recipe price; e.g. 0.1 taxes iron farms.");
 		c.put("spawnEggs", "Spawn eggs available in the shop. Entities not listed in 'allowed' are never sold.");
 		c.put("permissions.adminLevel", "Operator permission level needed for /balance set|add|remove and /minesino reload.");
 		c.put("permissions.adminPlayers", "UUIDs of extra players allowed to use admin commands.");

@@ -1,24 +1,24 @@
 package dev.minesino.client.gui;
 
-/** MineSino palette: wine-black surfaces with claret (burgundy) and gold accents. */
+/** MineSino palette: near-black surfaces with neon red and gold accents. */
 public final class Theme {
 	private Theme() {}
 
 	public static final int BACKDROP = 0xC0090405;
-	public static final int BG = 0xFF10070A;
-	public static final int SURFACE = 0xFF190B10;
-	public static final int CARD = 0xFF221016;
-	public static final int CARD_HI = 0xFF2E151D;
-	public static final int CARD_PRESS = 0xFF3A1A24;
-	public static final int BORDER = 0xFF3A1B24;
-	public static final int BORDER_HI = 0xFF6A2A38;
-	public static final int ACCENT = 0xFF9B1B30;
-	public static final int ACCENT_DARK = 0xFF5E0B1C;
-	public static final int ACCENT_GLOW = 0x669B1B30;
+	public static final int BG = 0xFF0A0607;
+	public static final int SURFACE = 0xFF120A0C;
+	public static final int CARD = 0xFF1A0E11;
+	public static final int CARD_HI = 0xFF261217;
+	public static final int CARD_PRESS = 0xFF321820;
+	public static final int BORDER = 0xFF3A141C;
+	public static final int BORDER_HI = 0xFF7A1F2E;
+	public static final int ACCENT = 0xFFFF1F3D;
+	public static final int ACCENT_DARK = 0xFFB0001C;
+	public static final int ACCENT_GLOW = 0x99FF1F3D;
 	public static final int GOLD = 0xFFF5C451;
 	public static final int GOLD_DARK = 0xFFC9952B;
 	public static final int NEON = 0xFF22D3EE;
-	public static final int PINK = 0xFFC23A52;
+	public static final int PINK = 0xFFFF2D55;
 	public static final int GREEN = 0xFF22C55E;
 	public static final int GREEN_DARK = 0xFF15803D;
 	public static final int RED = 0xFFEF4444;

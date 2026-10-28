@@ -124,7 +124,7 @@ public class KenoPage extends GamePage {
 			float x0 = gx + c * cell + 1.5f, y0 = gy + r * cell + 1.5f, s = cell - 3;
 			boolean p = picked[n], d = isDrawn[n];
 			if (p && d) hits++;
-			int fill = p && d ? 0xFF15803D : d ? 0xFF4A0E1A : p ? 0xFF8E1A30 : Theme.CARD;
+			int fill = p && d ? 0xFF15803D : d ? 0xFF5C0A16 : p ? 0xFFE0102E : Theme.CARD;
 			int border = p && d ? Theme.GOLD : p ? Theme.ACCENT : d ? Theme.ACCENT_DARK : Theme.BORDER;
 			boolean hov = !animating && Ui.inside(mx, my, x0, y0, s, s);
 			if (p && d) Ui.glow(g, x0, y0, s, s, 4, Theme.alpha(Theme.GOLD, 0.5f));

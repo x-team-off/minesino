@@ -63,19 +63,19 @@ public class Button extends Widget {
 		int top, bottom, border, text;
 		switch (style) {
 			case PRIMARY -> {
-				top = Theme.lerp(0xFFA5203A, 0xFFB82A45, hover);
-				bottom = Theme.lerp(Theme.ACCENT_DARK, 0xFF7A1026, hover);
-				border = 0xFFC9952B;
+				top = Theme.lerp(0xFFFF2D4A, 0xFFFF4D66, hover);
+				bottom = Theme.lerp(Theme.ACCENT_DARK, 0xFFE0102E, hover);
+				border = 0xFFFF7A8C;
 				text = Theme.TEXT;
 			}
-			case GOLD -> {
-				top = Theme.lerp(0xFFFFD873, 0xFFFFE49A, hover);
-				bottom = Theme.lerp(Theme.GOLD_DARK, 0xFFD9A53A, hover);
-				border = 0xFFFFE7A3;
-				text = 0xFF2A1B05;
+			case GOLD -> { // main call to action: neon red
+				top = Theme.lerp(0xFFFF2D4A, 0xFFFF5A70, hover);
+				bottom = Theme.lerp(0xFFD0102C, 0xFFFF1F3D, hover);
+				border = 0xFFFF8FA0;
+				text = 0xFFFFFFFF;
 			}
 			case DANGER -> {
-				top = Theme.lerp(0xFFB82A45, 0xFFFF8585, hover);
+				top = Theme.lerp(0xFFFF4D66, 0xFFFF8585, hover);
 				bottom = Theme.RED_DARK;
 				border = 0xFFFCA5A5;
 				text = Theme.TEXT;
@@ -90,7 +90,7 @@ public class Button extends Widget {
 				int base = sel ? Theme.CARD_PRESS : Theme.CARD;
 				top = Theme.lerp(base, Theme.CARD_HI, hover);
 				bottom = Theme.lerp(base, Theme.CARD_HI, hover * 0.7f);
-				border = sel ? Theme.GOLD_DARK : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
+				border = sel ? Theme.ACCENT : Theme.lerp(Theme.BORDER, Theme.BORDER_HI, hover);
 				text = sel ? Theme.TEXT : Theme.lerp(Theme.TEXT_DIM, Theme.TEXT, hover);
 			}
 		}
@@ -100,9 +100,10 @@ public class Button extends Widget {
 			border = Theme.BORDER;
 			text = Theme.MUTED;
 		}
-		if (enabled && (hover > 0.01f || sel) && style != Style.GHOST && style != Style.CHIP && style != Style.ICON) {
-			Ui.glow(g, bx, by, bw, bh, 5 + 3 * hover, Theme.alpha(style == Style.GOLD ? Theme.GOLD : style == Style.DANGER ? Theme.RED
-				: style == Style.SUCCESS ? Theme.GREEN : Theme.ACCENT, 0.25f + 0.3f * hover));
+		boolean neon = style == Style.GOLD || style == Style.PRIMARY;
+		if (enabled && (hover > 0.01f || sel || neon) && style != Style.GHOST && style != Style.CHIP && style != Style.ICON) {
+			Ui.glow(g, bx, by, bw, bh, 5 + 3 * hover, Theme.alpha(neon ? Theme.ACCENT : style == Style.DANGER ? Theme.RED
+				: style == Style.SUCCESS ? Theme.GREEN : Theme.ACCENT, (neon ? 0.45f : 0.25f) + 0.3f * hover));
 		}
 		if (sel && (style == Style.GHOST || style == Style.CHIP)) Ui.glow(g, bx, by, bw, bh, 4, Theme.alpha(Theme.ACCENT, 0.35f));
 		Ui.round(g, bx, by, bw, bh, r, border);

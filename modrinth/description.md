@@ -32,7 +32,7 @@
 - Ориентиры цен: алмаз 1 500 MS, незеритовая броня ≈ 40 000 MS, яйцо дракона 1 000 000 MS.
 
 ### 🎨 Современный интерфейс
-- Винно-чёрный фон, бордовые и золотые акценты, как в дорогом казино; мягкие тени и свечение.
+- Почти чёрный фон, неоново-красные акценты со свечением и золото; мягкие тени.
 - Гладкие скругления при любом масштабе GUI.
 - Плавные анимации: колесо рулетки, барабаны слотов, падение шарика, полёт ракеты.
 - История операций с фильтрами, статистика игрока, настройки эффектов и HUD.
@@ -67,5 +67,5 @@ A premium casino inside Minecraft. A tablet lives in a dedicated **10th hotbar s
 
 - Server-authoritative economy with exact money math, anti-dupe and anti-replay protection.
 - 1250+ item prices derived from real recipes, with no craft-and-sell profit loops.
-- Burgundy & gold custom UI with smooth animations; other players see the tablet in your hand; Russian and English translations.
+- Neon red & gold custom UI with smooth animations; other players see the tablet in your hand; Russian and English translations.
 - Works in singleplayer, LAN and on dedicated servers. Requires Fabric API; install on **both** server and client.

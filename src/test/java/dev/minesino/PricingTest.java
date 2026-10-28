@@ -133,7 +133,9 @@ class PricingTest {
 		MobFacts built = new MobFacts("minecraft:iron_golem", false, true, true, false, false, false, false, false, false, false, false, false, true, false);
 		assertEquals(36_100, MobSaleRules.evaluate(built, mobs(), cfg.mobs).price());
 		MobFacts farmed = new MobFacts("minecraft:iron_golem", false, true, true, false, false, false, false, false, false, false, false, false, false, false);
-		assertEquals(3_610, MobSaleRules.evaluate(farmed, mobs(), cfg.mobs).price(), "iron-farm golems are worth less");
+		assertEquals(36_100, MobSaleRules.evaluate(farmed, mobs(), cfg.mobs).price(), "any golem is worth its recipe by default");
+		cfg.mobs.naturalGolemMultiplier = new java.math.BigDecimal("0.1");
+		assertEquals(3_610, MobSaleRules.evaluate(farmed, mobs(), cfg.mobs).price(), "servers can still tax iron-farm golems");
 	}
 
 	@Test

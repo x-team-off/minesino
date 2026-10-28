@@ -27,7 +27,7 @@ public class WheelPage extends GamePage {
 		if (m == 0) return 0xFF2B1B1D;
 		if (m <= 100) return 0xFF475569;
 		if (m <= 120) return 0xFF0E7490;
-		if (m <= 150) return 0xFF8E1A30;
+		if (m <= 150) return 0xFFE0102E;
 		if (m <= 200) return 0xFFDB2777;
 		if (m <= 300) return 0xFF16A34A;
 		return 0xFFD4A017;

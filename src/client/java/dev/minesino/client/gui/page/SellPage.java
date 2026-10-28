@@ -174,7 +174,7 @@ public class SellPage extends Page {
 			float ry = listY + 2 + i * rowH - scroll.offset;
 			if (ry + rowH < listY || ry > listY + listH) continue;
 			boolean hov = Ui.inside(mx, my, x, ry, w, rowH) && my > listY && my < listY + listH;
-			int bg = r.chosen > 0 ? 0xFF1E2A1F : hov ? Theme.CARD_HI : i % 2 == 0 ? 0xFF190B10 : 0xFF231618;
+			int bg = r.chosen > 0 ? 0xFF1E2A1F : hov ? Theme.CARD_HI : i % 2 == 0 ? 0xFF120A0C : 0xFF231618;
 			Ui.round(g, x + 2, ry, w - 4, rowH - 2, 4, bg);
 			if (r.chosen > 0) Ui.round(g, x + 2, ry + 3, 2, rowH - 8, 1, Theme.GREEN);
 			g.item(r.display, (int) x + 6, (int) ry + 1);
