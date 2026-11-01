@@ -9,7 +9,7 @@
 ![Minecraft](https://img.shields.io/badge/Minecraft-26.3-62B47A?style=for-the-badge)
 ![Fabric](https://img.shields.io/badge/Fabric_Loader-0.19.5+-DBD0B4?style=for-the-badge)
 ![Java](https://img.shields.io/badge/Java-25-E76F00?style=for-the-badge)
-![Version](https://img.shields.io/badge/version-0.1.3-FF1F3D?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.1.0-FF1F3D?style=for-the-badge)
 
 Планшет в отдельном **10-м слоте**, **12 игр казино**, продажа предметов и мобов, магазин с яйцами призыва.
 Все деньги считает сервер — без дюпов и подмены пакетов.
